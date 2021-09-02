@@ -16,7 +16,7 @@ print(oktal)
 print("Desimal - Hexa")
 desimal = int(input("Masukkan bilangan desimal : "))
 hexa = hex(desimal).replace("0x", "")
-print(hexa)
+print(hexa.upper())
 
 # Nomor 2 b
 print("Hexa - Desimal")
@@ -36,7 +36,7 @@ print(bin(oktal).replace("0b", ""))
 # Nomor 4 a
 print("Binner - Hexa")
 binner = int(input("Masukkan bilangan binner : "), 2)
-print(hex(binner).replace("0x", ""))
+print(hex(binner).replace("0x", "").upper())
 
 # Nomor 4 b
 print("Hexa - Binnner")
@@ -51,4 +51,4 @@ print(oct(hexa).replace("0o", ""))
 # Nomor 5 b
 print("Oktal - Hexa")
 oktal = int(input("Masukkan bilangan oktal : "), 8)
-print(hex(oktal).replace("0x", ""))
+print(hex(oktal).replace("0x", "").upper())
