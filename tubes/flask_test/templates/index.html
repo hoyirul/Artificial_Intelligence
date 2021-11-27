@@ -1,0 +1,10 @@
+{% extends "./layouts/main.html" %}
+
+{% block content %}
+
+<h1>Looping for</h1>
+{% for row in value %}
+  <li>{{ row[0] }}</li>
+{% endfor %}
+
+{% endblock %}

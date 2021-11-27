@@ -1,0 +1,40 @@
+{% extends "./layouts/main.html" %}
+{% block content %}
+
+  <h1 class="text-center">APIS</h1>
+
+  <form action="/store" method="POST">
+    <label for="">Username : </label> <br>
+    <input type="text" name="username" required>
+    <br> <br>
+    <label for="">Password</label> <br>
+    <input type="password" name="password" required>
+    <br> <br>
+    <label for="">Level</label> <br>
+    <input type="number" name="level" required>
+    <br><br>
+    <button type="submit">add data</button>
+  </form>
+
+  <table border="1" class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Level</th>
+      </tr>
+    </thead>
+    {% for row in data %}
+    <tbody>
+      <tr>
+        <td>{{ row[0] }}</td>
+        <td>{{ row[1] }}</td>
+        <td>{{ row[2] }}</td>
+        <td>{{ row[3] }}</td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+    
+{% endblock %}

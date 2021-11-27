@@ -1,0 +1,174 @@
+[
+  {
+    "kode_gejala": "G001",
+    "gejala": "Banyak makan (polifagia)"
+  },
+  {
+    "kode_gejala": "G002",
+    "gejala": "Banyak minum (polodipsia)"
+  },
+  {
+    "kode_gejala": "G003",
+    "gejala": "Sering merasa buang air kecil (polliuria)"
+  },
+  {
+    "kode_gejala": "G004",
+    "gejala": "Berat badan turun dengan cepat tanpa alasan yang jelas"
+  },
+  {
+    "kode_gejala": "G005",
+    "gejala": "Umur dibawah 20 tahun"
+  },
+  {
+    "kode_gejala": "G006",
+    "gejala": "Faktor keturunan"
+  },
+  {
+    "kode_gejala": "G007",
+    "gejala": "Mulut kering"
+  },
+  {
+    "kode_gejala": "G008",
+    "gejala": "Mudah kelelahan"
+  },
+  {
+    "kode_gejala": "G009",
+    "gejala": "Mudah mengantuk"
+  },
+  {
+    "kode_gejala": "G010",
+    "gejala": "Timbulnya rasa kesemutan (mati rasa) atau sakit pada tangan atau kaki"
+  },
+  {
+    "kode_gejala": "G011",
+    "gejala": "Timbulnya rasa borok (luka) yang tak kunjung sembuh"
+  },
+  {
+    "kode_gejala": "G012",
+    "gejala": "Mengalami gatal-gatal pada tubuh"
+  },
+  {
+    "kode_gejala": "G013",
+    "gejala": "Disfungsi eraksi pada pria"
+  },
+  {
+    "kode_gejala": "G014",
+    "gejala": "Obesitas sebesar 20% dari berat badan normal"
+  },
+  {
+    "kode_gejala": "G015",
+    "gejala": "Pruritus vulvae pada wanita (gangguan gatal parah pada wanita yang sedang hamil)"
+  },
+  {
+    "kode_gejala": "G016",
+    "gejala": "Kadar glukosa darah lebih dari 140 mg/dl"
+  },
+  {
+    "kode_gejala": "G017",
+    "gejala": "Kadar glukosa darah lebih dari 140 mg/dl(sewaktu hamil)"
+  },
+  {
+    "kode_gejala": "G018",
+    "gejala": "Infeksi kulit"
+  },
+  {
+    "kode_gejala": "G019",
+    "gejala": "Mengalami batuk dan pilek yang tak kunjung sembuh"
+  },
+  {
+    "kode_gejala": "G020",
+    "gejala": "Air seni dikerubuti oleh semut"
+  },
+  {
+    "kode_gejala": "G021",
+    "gejala": "Penglihatan menjadi rabun"
+  },
+  {
+    "kode_gejala": "G022",
+    "gejala": "Merasa pusing dan mual"
+  },
+  {
+    "kode_gejala": "G023",
+    "gejala": "Mati rasa atau kehilangan indra perasa (umumnya didahului oleh bagian kaki lalu tangan)"
+  },
+  {
+    "kode_gejala": "G024",
+    "gejala": "Nyeri pada tubuh seperti tertusuk benda tajam dan berlangsung lama"
+  },
+  {
+    "kode_gejala": "G025",
+    "gejala": "Tekanan darah rendah (pasien umumnya mengeluhkan pusing saat merubah posisi dengan cepat dari duduk atau berbaring"
+  },
+  {
+    "kode_gejala": "G026",
+    "gejala": "Detak jantung cepat atau tidak teratur"
+  },
+  {
+    "kode_gejala": "G027",
+    "gejala": "Kebas atau penurunan kemampuan merasakan sakit"
+  },
+  {
+    "kode_gejala": "G028",
+    "gejala": "Refleks pada saat memegang/menyentuh benda mulai berkurang"
+  },
+  {
+    "kode_gejala": "G029",
+    "gejala": "Kehilangan keseimbangan"
+  },
+  {
+    "kode_gejala": "G030",
+    "gejala": "Masalah serius pada kaki, seperti infeksi pada tukak, nyeri sendi dan tulang atau perubahan bentuk (deformitas)"
+  },
+  {
+    "kode_gejala": "G031",
+    "gejala": "Melihat floaters atau titik hitam"
+  },
+  {
+    "kode_gejala": "G032",
+    "gejala": "Kesulitan melihat dimalam hari"
+  },
+  {
+    "kode_gejala": "G033",
+    "gejala": "Kesulitan membedakan warna"
+  },
+  {
+    "kode_gejala": "G034",
+    "gejala": "Pembengkangkan pada tubuh"
+  },
+  {
+    "kode_gejala": "G035",
+    "gejala": "Kerusakan jaringan syaraf mata"
+  },
+  {
+    "kode_gejala": "G036",
+    "gejala": "Perubahan pada lensa mata"
+  },
+  {
+    "kode_gejala": "G037",
+    "gejala": "Pasien sering melihat bintik-bintik yang melayang-layang"
+  },
+  {
+    "kode_gejala": "G038",
+    "gejala": "Pembuluh darah abnormal"
+  },
+  {
+    "kode_gejala": "G039",
+    "gejala": "Urine berwarna lebih gelap disebabkan oleh darah dalam urine"
+  },
+  {
+    "kode_gejala": "G040",
+    "gejala": "Mudah merasa sesak nafas"
+  },
+  {
+    "kode_gejala": "G041",
+    "gejala": "Pembengkangkan pada pergelangan kaki disebabkan oleh retensi air"
+  },
+  {
+    "kode_gejala": "G042",
+    "gejala": "Kelelahan akibat kekurangan oksigen dalam darah"
+  },
+  {
+    "kode_gejala": "G043",
+    "gejala": "Tubuh membengkak karena tumpukan cairan"
+  }
+]

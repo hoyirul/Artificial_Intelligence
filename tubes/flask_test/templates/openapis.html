@@ -1,0 +1,40 @@
+{% extends "./layouts/main.html" %}
+{% block content %}
+
+  <h1>APIS</h1>
+  <h3>Jenis Penyakit Diabetes</h3>
+  <table border="1" class="table">
+    <thead>
+      <tr>
+        <th>Kode</th>
+        <th>Penyakit</th>
+      </tr>
+    </thead>
+    {% for row in penyakit %}
+    <tbody>
+      <tr>
+        <td>{{ row['kode_penyakit'] }}</td>
+        <td>{{ row['penyakit'] }}</td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+  
+  <h3>Gejala Penyakit Diabetes</h3>
+  <table border="1" class="table">
+    <thead>
+      <tr>
+        <th>Kode</th>
+        <th>Gejala</th>
+      </tr>
+    </thead>
+    {% for row in gejala %}
+    <tbody>
+      <tr>
+        <td>{{ row['kode_gejala'] }}</td>
+        <td>{{ row['gejala'] }}</td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+{% endblock %}

@@ -1,0 +1,26 @@
+[
+  {
+    "kode_penyakit": "P001",
+    "penyakit": "Diabetes Mellitus Tipe 1"
+  },
+  {
+    "kode_penyakit": "P002",
+    "penyakit": "Diabetes Mellitus Tipe 2"
+  },
+  {
+    "kode_penyakit": "P003",
+    "penyakit": "Diabetes Gestasional"
+  },
+  {
+    "kode_penyakit": "P004",
+    "penyakit": "Diabetes Neuropati"
+  },
+  {
+    "kode_penyakit": "P005",
+    "penyakit": "Diabetes Retinopati"
+  },
+  {
+    "kode_penyakit": "P006",
+    "penyakit": "Diabetes Nefropati"
+  }
+]

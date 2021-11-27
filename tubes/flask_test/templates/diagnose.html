@@ -1,0 +1,101 @@
+{% extends "./layouts/main.html" %}
+
+
+{% block content %}
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-3">
+      <div class="card" style="width: 100%;">
+        <img class="card-img-top" src="https://images.unsplash.com/photo-1593642532454-e138e28a63f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card" style="width: 100%;">
+        <img class="card-img-top" src="https://images.unsplash.com/photo-1593642532454-e138e28a63f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card" style="width: 100%;">
+        <img class="card-img-top" src="https://images.unsplash.com/photo-1593642532454-e138e28a63f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card" style="width: 100%;">
+        <img class="card-img-top" src="https://images.unsplash.com/photo-1593642532454-e138e28a63f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <form action="/check" method="POST">
+    <!-- <label for="">Nama Pasein : </label>
+    <input type="text" name="nama" required>
+    <br> <br>
+    <label for="">Umur Pasein : </label>
+    <input type="text" name="umur" required>
+    <br> <br> -->
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table table-border table-striped">
+          <thead>
+            <tr>
+              <th>Kode</th>
+              <th>Gejala</th>
+            </tr>
+          </thead>
+          {% for row in gejala %}
+            {% if row['kode_gejala'] >= 'G001' and row['kode_gejala'] <= 'G010': %}
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" name="gejala" value="{{ row['kode_gejala'] }}"></td>
+                  <td>{{ row['gejala'] }}</td>
+                </tr>
+              </tbody>
+            {% endif %}
+          {% endfor %}
+        </table>
+      </div>
+
+      <div class="col-md-6">
+        <table class="table table-border table-striped">
+          <thead>
+            <tr>
+              <th>Kode</th>
+              <th>Gejala</th>
+            </tr>
+          </thead>
+          {% for row in gejala %}
+            {% if row['kode_gejala'] >= 'G011' and row['kode_gejala'] <= 'G020': %}
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" name="gejala" value="{{ row['kode_gejala'] }}"></td>
+                  <td>{{ row['gejala'] }}</td>
+                </tr>
+              </tbody>
+            {% endif %}
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+
+    <br> 
+    <button type="submit" class="btn btn-lg btn-danger">Check</button>
+  </form>
+</div>
+{% endblock %}
