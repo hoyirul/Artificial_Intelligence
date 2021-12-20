@@ -1,0 +1,75 @@
+{% extends "./layouts/main.html" %}
+{% block content %}
+  <div class="container">
+    <div class="col-md-12">
+      <div class="p-5"></div>
+      <h3 class="title"><b>Konsultasi</b></h3>
+      <hr>
+
+      {% if errors == true: %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong>Terjadi Kesalahan!</strong> Anda harus memilih minimal 2 gejala.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {% endif %}      
+
+      <form action="/konsultasi/hasil" method="POST">
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="">Nama : </label>
+            <input type="text" name="nama" required placeholder="Nama anda" class="form-control">
+          </div>
+          
+          <div class="col-md-6">
+            <label for="">Umur : </label>
+            <input type="number" name="umur" required placeholder="Umur anda" class="form-control">
+          </div>
+        
+        </div>
+        <div class="form-group row">
+          <div class="col-md-12">
+            <label for="">Alamat : </label>
+            <textarea name="alamat" class="form-control" required placeholder="Alamat anda"></textarea>
+          </div>
+        </div>
+        
+        <br>
+        <div class="row">
+          <div class="col-md-12">
+            <h5>Apakah anda merasa keluhan dibawah? (jika iya centang checkbox)</h5>
+            <br>
+          </div>
+
+          <div class="col-md-12">
+            <table class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th>Gejala</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for row in data %}
+                  <tr>
+                    <td>{{ row[1] }}</td>
+                    <td class="text-center">
+                      <input type="checkbox" name="kode_gejala" value="{{ row[0] }}">
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+
+          </div>
+      
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-app btn-contact">Cek Hasil Konsultasi</button>
+          </div>
+        </div>
+      </form>
+      <br>
+    </div>
+  </div>
+{% endblock %}

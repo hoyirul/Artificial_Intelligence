@@ -47,8 +47,9 @@ def check():
         # nama = request.form['nama']
         # umur = request.form['umur']
         gejala = request.form.getlist('gejala')
-        print(gejala)
-        return gejala[3]
+        count = len(gejala)
+        
+    return render_template('test.html', data=gejala, count=count)
 
 @app.route('/users')
 def users():

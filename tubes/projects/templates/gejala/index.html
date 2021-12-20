@@ -1,0 +1,65 @@
+{% extends "./layouts/main.html" %}
+{% block content %}
+  <div class="container">
+    <div class="col-md-12">
+      <div class="p-5"></div>
+      <h3>Data Gejala</h3>
+      <hr>
+      
+      <button type="button" class="btn btn-md btn-app" data-toggle="modal" data-target="#addGejala">Tambah Gejala</button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="addGejala" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Tambah Gejala</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form action="/gejala/store" method="POST">
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="">Kode Gejala : </label>
+                  <input type="text" name="kode_gejala" required placeholder="ID" class="form-control">
+                </div>
+                  <div class="form-group">
+                    <label for="">Gejala : </label>
+                    <input type="text" name="nama_gejala" required placeholder="Gejala" class="form-control">
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-app">Simpan</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <br><br>
+      <table id="basic-table" class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Gejala</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in data %}
+            <tr>
+              <td>{{ row[0] }}</td>
+              <td>{{ row[1] }}</td>
+              <td class="text-center">
+                <a href="/gejala/show/{{ row[0] }}" onclick="return confirm('are your sure?')" class="btn btn-sm btn-info">Edit</a>
+                <a href="/gejala/delete/{{ row[0] }}" onclick="return confirm('are your sure?')" class="btn btn-sm btn-danger">Hapus</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

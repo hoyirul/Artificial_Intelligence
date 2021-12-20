@@ -1,19 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <title>Diabets 2021 | Applications Kecerdasan Buatan.</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Application Test</title>
+  <link rel="stylesheet" href="./../../static/style/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
-  <!-- <link rel="stylesheet" href="./../../static/css/style.css"> -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
+  <style>
+    .page-item{
+      margin: 0 !important;
+    }
+  </style>
 </head>
+
 <body>
-  <h1 class="text-center">INI KEPALA</h1>
+  <nav id="head" class="navbar nav navbar-expand-lg fixed-top" onscroll="Scroll()">
+    <div class="nav-box">
+    </div>
+    <a class="navbar-brand" href="#"><b class="brand-var">:Diabets</b></a>
+    <div class="toggle">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+
+    <div class="collapse pl-5 navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto topnav">
+        <li class="nav-item">
+          <a class="nav-link" href="/#beranda">Beranda <span class="sr-only">(current)</span></a>
+          <!-- <a class="nav-link actived" href="/#beranda">Beranda <span class="sr-only">(current)</span></a> -->
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Data
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/penyakit">Penyakit</a>
+            <a class="dropdown-item" href="/gejala">Gejala</a>
+            <a class="dropdown-item" href="/pengobatan">Pengobatan</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/basis">Basis Pengetahuan</a>
+            <a class="dropdown-item" href="/solusi">Solusi</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/rules">Rules</a>
+            <a class="dropdown-item" href="/laporan">Laporan</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#services">Layanan</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#teori">Teori</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">Tentang</a>
+        </li>
+      </ul>
+      <div class="form-inline pr-15 my-2 my-lg-0">
+        <a href="/konsultasi" class="btn btn-app">Konsultasi</a>
+      </div>
+    </div>
+  </nav>
 
   {% block content %} {% endblock %}
+  
+    <div class="p-3"></div>
+    <!-- FOOTER -->
+    <footer class="text-center">
+      <p class="text-dark">© 2021 Diabets | Diabets is a trademark of kecerdasan buatan group</p>
+    </footer>
+    <!-- END FOOTER -->
+  </div>
+  <!-- END MAIN BOTTOM -->
 
-  <h1 class="text-center">INI KAKI</h1>
+  </section>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script><script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
+<script src="./../../static/js/nav.js"></script>
+<script src="./../../static/js/navigation.js"></script>
+
+<script>
+  $(document).ready(function() {
+    $('#basic-table').DataTable();
+    //$('select').select2();
+  });
+</script>
 </body>
 </html>

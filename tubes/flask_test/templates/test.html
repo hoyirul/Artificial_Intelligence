@@ -1,0 +1,26 @@
+{% extends "./layouts/main.html" %}
+{% block content %}
+
+  <h1>APIS</h1>
+
+  <table border="1" class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+      </tr>
+    </thead>
+    {% for row in data %}
+    <tbody>
+      <tr>
+        <td>{{ row }}</td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+
+  {% for x in range(count+1): %}
+    {{ x }}
+  {% endfor %}
+  <h1>{{ count }}</h1>
+    
+{% endblock %}

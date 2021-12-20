@@ -1,0 +1,12 @@
+{% extends "./layouts/main.html" %}
+{% block content %}
+
+  <h1 class="text-center">Update Data</h1>
+  <div class="container">
+    <select name="" id="">
+        {% for row in penyakit %}
+            <option value="">{{ row[0] }}</option>
+        {% endfor %}
+    </select>
+  </div>
+{% endblock %}

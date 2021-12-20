@@ -1,0 +1,30 @@
+========== Expert System dengan Metode Forward Chaining Kecerdasan Buatan ===========
+Berdasarkan analisis sistem Anda dinyatakan 75% Terindikasi Virus Covid-19
+
+Berikut daftar obat untuk gejala Covid sedang :
+•   Klorokuin fosfat, 500 mg/12 jam/oral (hari ke 1-3) dilanjutkan 250 mg/12 jam/ oral 
+    (hari ke 4-10) ATAU hidroksiklorokuin dosis 400 mg/24 jam/oral (untuk 5 hari), 
+    setiap 3 hari kontrol EKG
+•   Azitromisin 500 mg/24 jam (untuk 5 hari) atau levofloxacin 750 mg/24 
+    jam/ intravena (5 hari)
+•   Bila terdapat kondisi sepsis yang diduga kuat oleh karena ko-infeksi bakteri, 
+    pemilihan antibiotik disesuaikan dengan kondisi klinis, fokus infeksi dan faktor 
+    risiko yang ada pada pasien. Pemeriksaan kultur darah harus dikerjakan dan 
+    pemeriksaan kultur sputum (dengan kehati-hatian khusus) patut dipertimbangkan.
+•   Antivirus: oseltamivir 75 mg/12 jam oral ATAU favipiravir (Avigan sediaan 200 mg) 
+    loading dose 1.600 mg/12 jam/oral hari ke-1 dan selanjutnya 2x600 mg (hari ke 2-5)
+•   Vitamin C 200-400 mg/8 jam dalam 100 mL NaCl 0,9% habis dalam 1 jam diberikan 
+    secara drips intravena (i.v.) selama perawatan
+•   Vitamin B1 1 ampul/24 jam/intravena
+•   Hydroxycortison 100 mg/24 jam/intravena (3 hari pertama) 
+•   Pengobatan komorbid dan komplikasi yang ada 
+•   Obat suportif lainnya
+
+Selain itu disarankan untuk melakukan terapi alternatif  
+• Prinsip terapi yang diberikan adalah aktif mencegah komplikasi, mengatasi penyakit 
+  penyerta yang muncul, mencegah infeksi sekunder, dan menyediakan dukungan fungsi 
+  organ tepat waktu. Selain itu, diberikan terapi terhadap symptom.
+
+Jangan lupa jaga kesehatan, kurangi begadang dan berjemur dibawah sinar matahari 
+selama 15 menit pada jam 9 pagi.
+Semoga lekas sembuh, semangatt :)

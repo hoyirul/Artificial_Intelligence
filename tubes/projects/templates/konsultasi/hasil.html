@@ -1,0 +1,67 @@
+{% extends "./layouts/main.html" %}
+{% block content %}
+  <div class="container">
+    <div class="col-md-12">
+      <div class="p-5"></div>
+      <h3><b>Hasil Diagnosa</b></h3>
+      <hr>
+      
+      <h6>Pasien : </h6>
+      <table id="" class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>Umur</th>
+            <th>Alamat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ bio[2] }}</td>
+            <td>{{ bio[4] }}</td>
+            <td>{{ bio[3] }}</td>
+          </tr>          
+        </tbody>
+      </table>
+
+      <!-- <a href="/penyakit/add" class="btn btn-md btn-primary">Tambah Penyakit</a> -->
+      <!-- <br> -->
+      <table id="" class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Gejala Terpilih</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in gejala %}
+            <tr>
+              <td>{{ row[0] }}</td>
+              <td>{{ row[1] }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      
+      <!-- <br> -->
+      {% for row in data %}
+        {% if row[0] != 'P005': %}
+          <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading">{{ row[1] }}</h4>
+            <p>{{ row[2] }}</p>
+            <hr>
+            <a href="" class="btn btn-md btn-app">Cek Pengobatan</a>
+          </div>
+        {% else: %}
+          <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">{{ row[1] }}</h4>
+            <p>{{ row[2] }}</p>
+            <hr>
+            <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+
+    </div>
+  </div>
+{% endblock %}

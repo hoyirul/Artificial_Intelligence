@@ -1,0 +1,73 @@
+{% extends "./layouts/main.html" %}
+{% block content %}
+  <div class="container">
+    <div class="col-md-12">
+      <div class="p-2"></div>
+      <h3>Hasil Diagnosa</h3>
+      <hr>
+      
+      <br>
+      <!-- <table id="" class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Penyakit</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in data %}
+            <tr>
+              <td>{{ row[0] }}</td>
+              <td>{{ row[1] }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table> -->
+
+      <!-- edited -->
+      {% set is_canged = true %}
+      <!-- {% set facts = [gejala] %} -->
+      {% set data = [penyakit] %}
+      {% set rule = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false] %}
+      
+      <code>{{ facts[0][3] }}</code>
+      <code>{{ data[0][3] }}</code>
+      <table id="" class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Penyakit</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in choose %}
+            <tr>
+                <td>{{ row }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <table id="" class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Penyakit</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for key in choose %}
+            {% for row in rules %}
+              <tr>
+                {% if key == row[1]: %}
+                  <td>{{ row[0] }}</td>
+                {% else: %}
+                  <td>FALSE</td>
+                {% endif %}
+              </tr>
+            {% endfor %}
+          {% endfor %}
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+{% endblock %}

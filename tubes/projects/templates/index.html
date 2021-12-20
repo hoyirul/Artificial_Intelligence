@@ -1,57 +1,189 @@
 {% extends "./layouts/main.html" %}
 {% block content %}
 
-  <h1 class="text-center">APIS</h1>
-
-  <form action="/store" method="POST">
-    <label for="">Username : </label> <br>
-    <input type="text" name="username" required>
-    <br> <br>
-    <label for="">Password</label> <br>
-    <input type="password" name="password" required>
-    <br> <br>
-    <label for="">Level</label> <br>
-    <input type="number" name="level" required>
-    <br><br>
-    <button type="submit">add data</button>
-  </form>
-  <br>
-
-  {% if errors == 'success': %}
-    <div class="alert alert-info" role="alert">
-      Berhasil
+<section class="content">
+  <!-- MAIN-TOP -->
+  <div class="main-top">
+    <!-- BANNER -->
+    <div id="beranda" class="main-banner">
+      <div class="left-banner">
+        <h1 class="mb-15">Bingung Mencari Konsultasi? Kunjungi Diabets Aja</h1>
+        <p class="text-justify">Diabets merupakan startup yang Bergerak di bidang kesehatan online dengan
+          mengutamakan experiencemu. Dengan adanya aplikasi ini maka orang akan bisa berkonsultasi tentang Diabetes Melitus online yang akan memudahkan masyarakat. </p>
+        <div class="text-left"><br>
+          <a href="/konsultasi" class="btn btn-app btn-width-same">Konsultasi</a>
+          <!-- <a href="https://drive.google.com/file/d/12QjT4JTkjqFrBDwqT_bMcr89bwLMOyWL/view?usp=sharing" target="_blank" class="btn btn-app btn-width-same">Prototype</a> -->
+        </div>
+      </div>
+      <div class="right-banner">
+        <img src="./../../static/svg/banner/banner-img.svg" class="banner-img mb-10" alt="">
+      </div>
     </div>
-  {% elif errors == 'failed' %}
-    <div class="alert alert-danger" role="alert">
-      Gagal
-    </div>
-  {% else: %}
-  {% endif %}
+    <!-- END BANNER -->
 
-  <table border="1" class="table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Username</th>
-        <th>Password</th>
-        <th>Level</th>
-        <th>Aksi</th>
-      </tr>
-    </thead>
-    {% for row in data %}
-    <tbody>
-      <tr>
-        <td>{{ row[0] }}</td>
-        <td>{{ row[1] }}</td>
-        <td>{{ row[2] }}</td>
-        <td>{{ row[3] }}</td>
-        <td>
-          <a href="/show/{{ row[0] }}" onclick="return confirm('are your sure?')" class="btn btn-xs btn-info">Edit</a>
-          <a href="/delete/{{ row[0] }}" onclick="return confirm('are your sure?')" class="btn btn-xs btn-danger">Hapus</a>
-        </td>
-      </tr>
-    </tbody>
-    {% endfor %}
-  </table>
-    
+    <!-- SERVICES -->
+    <div id="services" class="main-services">
+      <div class="p-5"></div>
+      <div class="title text-center p-3">
+        <h3 class="title-head">Layanan Kami</h3>
+        <p class="subtitle">Layanan yang bisa di rasakan oleh pengguna Diabets.</p>
+      </div>
+      <div class="p-3"></div>
+      <div class="services">
+        <div class="row pl-15 pr-15">
+
+          <div class="col-md-4">
+            <a href="#" class="link-services">
+              <div class="card box-shadow" style="width: 100%; height: auto">
+                <div class="card-body m-2 text-center">
+                  <img src="./../static/svg/icon/holding-heart.svg" class="mb-4" alt="">
+                  <h5 class="title-head mb-4">Kenyamanan</h5>
+                  <p class="text-justify subtitle">
+                    Takut dengan dokter yang asing? Jangan khawatir, setiap dokter diabets telah
+                    melalui serangkaian proses seleksi ketat, sehingga
+                    dapat memberikan pelayanan terbaik dan keramah tamahan yang prima pada setiap pasien
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-4">
+            <a href="#" data-toggle="modal" data-target="#exampleModalLong" class="link-services">
+              <div class="card box-shadow" style="width: 100%; height: auto">
+                <div class="card-body m-2 text-center">
+                  <img src="./../static/svg/icon/simple-clockify.svg" class="mb-4" alt="">
+                  <h5 class="title-head mb-4">Buka 24 Jam</h5>
+                  <p class=" text-justify subtitle">Ragu dengan ada dokter apa tidak? tenang saja Diabets buka 24 jam dan anda bisa melakukan konsultasi dimanapun dan kapanpun, sangat simpel bukan? jadi yuk bergabung bersama Diabets yang akan memberi kemudahan dan kenyamanan.</p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-4">
+            <a href="#" class="link-services">
+              <div class="card box-shadow" style="width: 100%; height: auto;">
+                <div class="card-body m-2 text-center">
+                  <img src="./../static/svg/icon/awesome-heartbeat.svg" class="mb-4" alt="">
+                  <h5 class="title-head mb-4">Keamanan</h5>
+                  <p class=" text-justify subtitle">Ragu dengan keamanannya? Percayakan pada Diabets! Setiap dokter dibekali dengan keamanan berlapis yang terdiri dari tombol emergency, fitur share location dengan
+                    kerabat, serta asuransi kesehatan, dan banyak lagi.</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- END SERVICES -->
+
+  </div>
+  <!-- END MAIN-TOP -->
+
+  <!-- ABOUT -->
+  <div id="teori" class="teori">
+    <div class="p-5"></div>
+    <div class="title text-center p-3">
+      <h3 class="title-head">Teori Diabetes</h3>
+      <p class="subtitle">Teori tentang Diabetes Melitus dan Information Lainnya.</p>
+    </div>
+    <div class="p-3"></div>
+    <div class="left-teori">
+      <img src="./../static/svg/teori/teori.svg" class="teori-img" alt="">
+    </div>
+    <div class="right-teori text-right">
+      <div class="p-3"></div>
+      <h4 class="title-head text-left">Diabetes Melitus</h4>
+      <p style="text-indent: 50px;" class="text-justify subtitle">Diabetes adalah penyakit kronis atau yang berlangsung jangka panjang yang ditandai dengan meningkatnya kadar gula darah (glukosa) hingga di atas nilai normal. Ada 2 jenis utama diabetes, yaitu diabetes tipe 1 dan 2. Diabetes disebabkan karena adanya gangguan dalam tubuh, sehingga tubuh tidak mampu menggunakan glukosa darah ke dalam sel, sehingga glukosa menumpuk dalam darah. </p>
+      <p style="text-indent: 50px;" class="text-justify subtitle">Pada diabetes tipe 1, gangguan ini disebabkan sistem kekebalan tubuh yang biasanya menyerang virus atau bakteri berbahaya lainnya, malah menyerang dan menghancurkan sel penghasil insulin. Akibatnya, tubuh kekurangan atau bahkan tidak dapat memproduksi insulin sehingga gula yang seharusnya diubah menjadi energi oleh insulin menyebabkan terjadinya penumpukan gula dalam darah.</p><br>
+      <a target="_blank" href="https://www.halodoc.com/kesehatan/diabetes" class="btn btn-app btn-contact">Selengkapnya</a>
+      </div>
+    </div>
+  </div>
+  <!-- END ABOUT -->
+
+  <!-- MAIN BOTTOM -->
+  <div class="main-bottom">
+    <!-- TEAM -->
+    <div id="team" class="main-team">
+      <div class="p-5"></div>
+      <div class="title text-center p-3">
+        <h3 class="title-head">Tim Kami</h3>
+        <p class="subtitle">Tim Diabets mengenai founder dan sekaligus pemilik perusahaan.</p>
+      </div>
+      <div class="p-3"></div>
+      <div class="team">
+        <div class="row pl-15 pr-15">
+
+          <div class="col-md-4 text-center">
+            <a href="https://www.instagram.com/hoyirul_/" target="_blank" class="link-team">
+              <img src="./../static/img/team/hoy.jpg" class="img-circle" alt="">
+            </a>
+            <!-- <div class="p-2"></div> -->
+            <h6>Mochammad Hairullah</h6>
+            <p>Chief Executive Officer</p>
+          </div>
+
+          <div class="col-md-4 text-center">
+            <a href="https://www.instagram.com/yoga.r_/" target="_blank" class="link-team">
+              <img src="./../static/img/team/yoga.jpeg" class="img-circle" alt="">
+            </a>
+            <!-- <div class="p-2"></div> -->
+            <h6>Yoga Rahmahadi</h6>
+            <p>Chief Technology Officer</p>
+          </div>
+
+          <div class="col-md-4 text-center">
+            <a href="https://www.instagram.com/yobiprtma/" target="_blank" class="link-team">
+              <img src="./../static/img/team/yobi.jpeg" class="img-circle" alt="">
+              <!-- <div class="p-2"></div> -->
+            </a>
+            <h6>Yoby Rayian Pratama</h6>
+            <p>Chief Information Officer</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- END TEAM -->
+
+    <!-- ABOUT -->
+    <div id="about" class="about">
+      <div class="p-5"></div>
+      <div class="title text-center p-3">
+        <h3 class="title-head">Tentang Kami</h3>
+        <p class="subtitle">Tentang aplikasi, informasi dan kontak perusahaan Diabets.</p>
+      </div>
+      <div class="p-3"></div>
+      <div class="left-about">
+
+        <div class="p-3"></div>
+        <h4 class="title-head text-left">Tentang Diabets</h4>
+        <p style="text-indent: 50px;" class="text-justify subtitle">Diabets merupakan startup yang Bergerak di bidang kesehatan online dengan mengutamakan experiencemu. Dengan adanya aplikasi ini maka orang akan bisa berkonsultasi tentang Diabetes Melitus online yang akan memudahkan masyarakat.</p>
+        <h4 class="title-head text-left">Docs</h4>
+        <p style="text-indent: 50px;" class="text-justify subtitle">Tugas Kecerdasan Buatan aplikasi deteksi penyakit Diabetes Melitus dengan metode Forward Chaining </p>
+        <table class="table">
+          <tr>
+            <th>Mata Kuliah</th>
+            <td>:</td>
+            <td>Kecerdasan Buatan</td>
+          </tr>
+          <tr>
+            <th>Dosen Pengampu</th>
+            <td>:</td>
+            <td>Mamluatul Hani'ah, S.Kom., M.Kom.</td>
+          </tr>
+        </table>
+        <div class="text-left"><br>
+          <a target="_blank" href="mailto:bukukoding3@gmail.com?subject=CS : Kontak Kami - Diabets" class="btn btn-app btn-contact">Kontak Kami</a>
+        </div>
+      </div>
+      <div class="right-about text-right">
+        <img src="./../static/svg/about/about.svg" class="about-img" alt="">
+      </div>
+    </div>
+    <!-- END ABOUT -->
+    <br>
+
 {% endblock %}

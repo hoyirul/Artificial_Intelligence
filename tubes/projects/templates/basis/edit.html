@@ -1,0 +1,46 @@
+{% extends "./layouts/main.html" %}
+{% block content %}
+  <div class="container">
+    <div class="p-5"></div>
+    <h3>Ubah Basis Pengetahuan</h3>
+    <hr>
+    <div class="col-md-12">  
+      
+      {% for row in data %}
+      <form action="/basis/update/{{ row[0] }}" method="POST">
+        <div class="form-group">
+          <label for="">Penyakit : </label>
+          <select name="kode_penyakit" required id="" class="form-control">
+            <option disabled selected>- Pilih Penyakit -</option>
+            {% for key in penyakit %}
+              {% set choose = ''  %}
+              {% if key[0] == row[1]: %}
+                {% set choose = 'selected' %}
+              {% else: %}
+                {% set choose = '' %}
+              {% endif %}
+              <option value="{{ key[0] }}" {{ choose }}>{{ key[0] }} - {{ key[1] }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="">Gejala : </label>
+          <select name="kode_gejala" id="" required class="form-control">
+            <option disabled selected>- Pilih Gejala -</option>
+            {% for key in gejala %}
+              {% set choose = ''  %}
+              {% if key[0] == row[2]: %}
+                {% set choose = 'selected' %}
+              {% else: %}
+                {% set choose = '' %}
+              {% endif %}
+              <option value="{{ key[0] }}" {{ choose }}>{{ key[0] }} - {{ key[1] }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <button type="submit" class="btn btn-app">Simpan</button>
+      </form>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
