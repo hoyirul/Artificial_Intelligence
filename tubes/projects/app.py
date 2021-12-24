@@ -1,3 +1,4 @@
+import re
 from typing import get_args
 from flask import Flask, render_template, request, redirect, url_for
 import json, os, string, random, time
@@ -257,7 +258,106 @@ def konsultasi():
     errors = False
     return render_template('/konsultasi/index.html', data=data, errors=errors)
 
+def akurasi(g):
+    errors = False
+    id_pasien = random_string()
+
+    # RULES
+    p1 = ["G001", "G002", "G003", "G012", "G019"]
+    p2 = ["G001", "G002", "G003", "G004", "G005", "G006", "G007", "G008", "G009", "G010", "G011", "G012", "G013"]
+    p3 = ["G001", "G002", "G003", "G004", "G006", "G007", "G008", "G009", "G010", "G011", "G012", "G013"]
+    p4 = ["G001", "G002", "G003", "G004", "G006", "G014", "G015", "G016", "G017"]
+
+    # Rule akan di looping dan di cek datanya sesuai rule
+    # dan akan di cek akurasi oleh sistem akurasi terbesarlah yang akan output penyakitnya
+    cp1, cp2, cp3, cp4= 0, 0, 0, 0
+    temp=[] # Akurasi akan disimpan di array
+    for x in g:
+        if x in p1:
+            cp1+=1
+        if x in p2:
+            cp2+=1
+        if x in p3:
+            cp3+=1
+        if x in p4:
+            cp4+=1
+
+    # menghitung akurasi jumlah pilihan / jumlah isi rule * 100%
+    accP1=((cp1/len(p1))*100/100)*100
+    accP2=((cp2/len(p2))*100/100)*100
+    accP3=((cp3/len(p3))*100/100)*100
+    accP4=((cp4/len(p4))*100/100)*100
+    
+    temp.append(accP1)
+    temp.append(accP2)
+    temp.append(accP3)
+    temp.append(accP4)
+
+    i = [x for x in temp if x <= 100]
+    acc=max(i) # akurasi tertinggi
+    
+    # akurasi yang kurang dari 45 akan termasuk P005 yang artinya penyakit tidak ditemukan
+    if acc >= 45:
+        if temp.index(acc)==0:
+            msg="P001"
+        elif temp.index(acc)==1:
+            msg="P002"
+        elif temp.index(acc)==2:
+            msg="P003"
+        elif temp.index(acc)==3:
+            msg="P004"
+    else:
+        msg = 'P005'
+    
+    result= {}
+    result["akurasi"] = acc
+    result["penyakit"] = msg
+
+    # return result
+
+    # Menyimpan ke database
+    if len(g) > 2:
+        pasien = [
+                id_pasien,
+                result['penyakit'],
+                request.form['nama'],
+                str(request.form['umur']),
+                request.form['alamat'],
+                str(result['akurasi']),
+                date_now
+            ]
+
+        PasienModel.store(pasien)
+        for row in range(len(g)):
+            gejala_terpilih = [
+                id_pasien,
+                g[row]
+            ]
+            PasienModel.store_detail(gejala_terpilih)
+        # end for
+        
+        detail = PasienModel.get_detail(id_pasien)
+        result = PenyakitModel.show(msg)
+        
+        return render_template('/konsultasi/hasil.html', data=result, bio=pasien, gejala=detail, acc=acc)
+    else:            
+        errors = True
+        data = GejalaModel.get_data()
+        return render_template('/konsultasi/index.html', data=data, errors=errors)
+    # return render_template('/hasil.html')
+
 @app.route('/konsultasi/hasil', methods=['POST'])
+def testing_hasil():
+    if request.method == 'POST':
+        gejala = request.form.getlist('kode_gejala')
+        # count = len(gejala)
+        result = akurasi(gejala)
+        # aks = result[0]
+        # penyakit = result[1]
+
+    return result
+
+@app.route('/testing', methods=['POST'])
 def konsultasi_hasil():
     msg = ''
     errors = False
@@ -271,14 +371,26 @@ def konsultasi_hasil():
             if count < 5 and count < 10 and count < 14 and count < 7:             
                 msg = 'P005'
             else:
-                if gejala[0] == 'G001' and gejala[1] == 'G002' and gejala[2] == 'G003' and gejala[3] == 'G012' and gejala[4] == 'G019':
-                    msg = 'P001'
-                elif gejala[0] == 'G001' and gejala[1] == 'G002' and gejala[2] == 'G003' and gejala[3] == 'G004' and gejala[4] == 'G005' and gejala[5] == 'G006' and gejala[6] == 'G007' and gejala[7] == 'G008' and gejala[8] == 'G009' and gejala[9] == 'G010' and gejala[10] == 'G011' and gejala[11] == 'G012' and gejala[12] == 'G013':
-                    msg = 'P002'
-                elif gejala[0] == 'G001' and gejala[1] == 'G002' and gejala[2] == 'G003' and gejala[3] == 'G004' and gejala[4] == 'G006' and gejala[5] == 'G007' and gejala[6] == 'G008' and gejala[7] == 'G009' and gejala[8] == 'G010' and gejala[9] == 'G0011' and gejala[10] == 'G012' and gejala[11] == 'G013':
-                    msg = 'P003'
-                elif gejala[0] == 'G001' and gejala[1] == 'G002' and gejala[2] == 'G003' and gejala[3] == 'G004' and gejala[4] == 'G006' and gejala[5] == 'G007' and gejala[6] == 'G014' and gejala[7] == 'G015' and gejala[8] == 'G016' and gejala[9] == 'G017' and gejala[10] == 'G018':
-                    msg = 'P004'
+                if count <= 5:
+                    if gejala[0] == 'G001' and gejala[1] == 'G002' and gejala[2] == 'G003' and gejala[3] == 'G012' and gejala[4] == 'G019':                        
+                        msg = 'P001'
+                    else:
+                        msg = 'P005'
+                elif count == 13:
+                    if gejala[0] == 'G001' and gejala[1] == 'G002' and gejala[2] == 'G003' and gejala[3] == 'G004' and gejala[4] == 'G005' and gejala[5] == 'G006' and gejala[6] == 'G007' and gejala[7] == 'G008' and gejala[8] == 'G009' and gejala[9] == 'G010' and gejala[10] == 'G011' and gejala[11] == 'G012' and gejala[12] == 'G013':
+                        msg = 'P002'
+                    else:
+                        msg = 'P005'
+                elif count == 12:
+                    if gejala[0] == 'G001' and gejala[1] == 'G002' and gejala[2] == 'G003' and gejala[3] == 'G004' and gejala[4] == 'G006' and gejala[5] == 'G007' and gejala[6] == 'G008' and gejala[7] == 'G009' and gejala[8] == 'G010' and gejala[9] == 'G0011' and gejala[10] == 'G012' and gejala[11] == 'G013':
+                        msg = 'P003'
+                    else:
+                        msg = 'P005'
+                elif count == 11:
+                    if gejala[0] == 'G001' and gejala[1] == 'G002' and gejala[2] == 'G003' and gejala[3] == 'G004' and gejala[4] == 'G006' and gejala[5] == 'G007' and gejala[6] == 'G014' and gejala[7] == 'G015' and gejala[8] == 'G016' and gejala[9] == 'G017' and gejala[10] == 'G018':
+                        msg = 'P004'
+                    else:
+                        msg = 'P005'
                 else:
                     msg = 'P005'
                 #  end if
@@ -288,8 +400,8 @@ def konsultasi_hasil():
                 id_pasien,
                 msg,
                 request.form['nama'],
-                request.form['alamat'],
                 str(request.form['umur']),
+                request.form['alamat'],
                 date_now
             ]
 
@@ -311,6 +423,7 @@ def konsultasi_hasil():
             limit_asc = GejalaModel.get_limit_asc()
             limit_desc = GejalaModel.get_limit_desc()
             return render_template('/konsultasi/index.html', asc=limit_asc, desc=limit_desc, errors=errors)
+        # return msg
         # endif
     # end if
 

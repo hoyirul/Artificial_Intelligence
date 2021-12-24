@@ -61,9 +61,10 @@
         {% else: %}          
           <div class="alert alert-warning" role="alert">
             <h4 class="alert-heading">{{ row[4] }}</h4>
+            <p>Dengan akurasi(Kemungkinan) : {{ row[8] }} %</p>
             <p>{{ row[5] }}</p>
             <hr>
-            <a href="/laporan/cekobat/{{ row[7] }}" class="btn btn-md btn-app">Cek Pengobatan</a>
+            <a href="/laporan/cekobat/{{ row[8] }}" class="btn btn-md btn-app">Cek Pengobatan</a>
           </div>
         {% endif %}
       {% endfor %}

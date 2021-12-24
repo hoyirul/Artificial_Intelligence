@@ -27,6 +27,14 @@ def store(data):
 
     return result
 
+def get_where_penyakit(id):
+    query = "select kode_gejala from basis_pengetahuan where kode_penyakit='"+ id +"'"
+    cursor = conn.cursor()
+    cursor.execute(query)
+    result = cursor.fetchall()
+
+    return result
+
 def show(id):
     query = "select * from basis_pengetahuan where id='"+ id +"'"
     cursor = conn.cursor()

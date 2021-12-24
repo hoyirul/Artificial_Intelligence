@@ -11,7 +11,7 @@ def get_data():
     return result
 
 def store(data):
-    query = "insert into pasien values('"+ data[0] +"', '"+ data[1] +"', '"+ data[2] +"', '"+ data[3] +"', '"+ data[4] +"', '"+ data[5] +"')"
+    query = "insert into pasien values('"+ data[0] +"', '"+ data[1] +"', '"+ data[2] +"', '"+ data[3] +"', '"+ data[4] +"', '"+ data[5] +"', '"+ data[6] +"')"
     cursor = conn.cursor()
     result = cursor.execute(query)
     conn.commit()
@@ -19,7 +19,7 @@ def store(data):
     return result
 
 def show(id):
-    query = "select pa.id_pasien, pa.nama, pa.umur, pa.alamat, pe.penyakit, pe.deskripsi, pa.tanggal, pe.kode_penyakit from pasien pa inner join penyakit pe on pe.kode_penyakit = pa.kode_penyakit where id_pasien='"+ id +"'"
+    query = "select pa.id_pasien, pa.nama, pa.umur, pa.alamat, pe.penyakit, pe.deskripsi, pa.tanggal, pe.kode_penyakit, pa.akurasi from pasien pa inner join penyakit pe on pe.kode_penyakit = pa.kode_penyakit where id_pasien='"+ id +"'"
     cursor = conn.cursor()
     cursor.execute(query)
     result = cursor.fetchall()

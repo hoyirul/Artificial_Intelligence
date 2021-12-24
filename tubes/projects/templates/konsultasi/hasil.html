@@ -48,9 +48,10 @@
         {% if row[0] != 'P005': %}
           <div class="alert alert-warning" role="alert">
             <h4 class="alert-heading">{{ row[1] }}</h4>
+            <p>Dengan akurasi(Kemungkinan) : {{ acc }} %</p>
             <p>{{ row[2] }}</p>
             <hr>
-            <a href="" class="btn btn-md btn-app">Cek Pengobatan</a>
+            <a href="/laporan/cekobat/{{ row[0] }}" class="btn btn-md btn-app">Cek Pengobatan</a>
           </div>
         {% else: %}
           <div class="alert alert-danger" role="alert">
